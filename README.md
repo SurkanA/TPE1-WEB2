@@ -1,7 +1,7 @@
 # TPE1-WEB2
 
 ## Tematica: Futbol
-- Base de datos diseñada para la visualicacion y organizacion de equipos de futbol. Conlleva una relacion de 1-N, cada jugador esta asociado a un unico equipo.
+- Base de datos diseñada para la visualización y organización de equipos de fútbol. Conlleva una relación de 1-N donde cada jugador está asociado a un único equipo.
 
 ### Integrantes
 - Agustin Andres Surkan (agustinsurkan@gmail.com)
