@@ -1,29 +1,4 @@
-{* <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                <a class="nav-link "href="home">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="equipos">Equipos</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="jugadores">Jugadores</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="loginUser">Login</a>
-                </li>
-            </ul>
-            </div>
-        </nav>
-    </header>
-<main> *}
-
-</head>
-  <body>
-    
+<body> 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="bootstrap" viewBox="0 0 16 16">
     <title>Fulbolito</title>
@@ -47,17 +22,14 @@
     <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
   </symbol>
 </svg>
-
 <main>
   <h1 class="visually-hidden"></h1>
-
   <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4">Fulbolito</span>
       </a>
-
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="home" class="nav-link" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="equipos" class="nav-link">Equipos</a></li>
@@ -65,4 +37,5 @@
         <li class="nav-item"><a href="loginUser" class="nav-link">Login</a></li>
       </ul>
     </header>
-  </div>
+</div>
+</main>
