@@ -4,9 +4,9 @@ require_once('model.php');
 class JugadorModel extends Model
 {
     //Función que pide a la DB todos los jugadores
-    public function getJugadores()
+    public function getPlayers()
     {
-        $pdo = $this->crearConexion();
+        $pdo = $this->createConnection();
 
         $sql = "select * from jugador";
         $query = $pdo->prepare($sql);
@@ -16,25 +16,25 @@ class JugadorModel extends Model
         return $jugadores;
     }
 
-    //Función que trae una tarea por id
-    public function getJugador($id_jugador)
+    //Función que trae una player por id
+    public function getPlayer($id_jugador)
     {
-        $pdo = $this->crearConexion();
+        $pdo = $this->createConnection();
 
         $sql = "SELECT * FROM jugador
         WHERE id_jugador = ?";
         $query = $pdo->prepare($sql);
         $query->execute([$id_jugador]);
 
-        $tarea = $query->fetch(PDO::FETCH_OBJ);
+        $player = $query->fetch(PDO::FETCH_OBJ);
 
-        return $tarea;
+        return $player;
     }
 
     //Función para crear un nuevo jugador en la DB
-    public function createJugador($id_jugador, $nombre_jugador, $posicion, $edad, $id_equipo)
+    public function createPlayer($id_jugador, $nombre_jugador, $posicion, $edad, $id_equipo)
     {
-        $pDO = $this->crearConexion();
+        $pDO = $this->createConnection();
 
         $sql = 'INSERT INTO jugador (id_jugador, nombre_jugador, posicion, edad, id_equipo) 
                 VALUES (?, ?, ?, ?, ?)';
@@ -45,14 +45,13 @@ class JugadorModel extends Model
         } catch (\Throwable $th) {
             echo $th;
             die(__FILE__);
-            return null;
         }
     }
 
     //Función para borrar un jugador de la DB
-    public function deleteJugador($id_jugador)
+    public function deletePlayer($id_jugador)
     {
-        $pDO = $this->crearConexion();
+        $pDO = $this->createConnection();
 
         $sql = 'DELETE FROM jugador
                 WHERE id_jugador = ?';
@@ -66,9 +65,9 @@ class JugadorModel extends Model
     }
 
     //Función para modificar un jugador de la DB
-    public function updateJugador($id_jugador, $nombre_jugador, $posicion, $edad, $id_equipo)
+    public function updatePlayer($id_jugador, $nombre_jugador, $posicion, $edad, $id_equipo)
     {
-        $pDO = $this->crearConexion();
+        $pDO = $this->createConnection();
 
         $sql = 'UPDATE jugador
             SET id_jugador = ?, nombre_jugador = ?, posicion = ?, edad = ?, id_equipo = ?
