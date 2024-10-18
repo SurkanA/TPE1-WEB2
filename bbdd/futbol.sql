@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2024 at 08:02 AM
+-- Generation Time: Oct 18, 2024 at 08:00 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -65,6 +65,26 @@ INSERT INTO `jugador` (`id_jugador`, `nombre_jugador`, `posicion`, `edad`, `id_e
 (30, 'Franco Mastantuono', 'Centrocampista', 17, 1),
 (33, 'Brian Aguirre', 'Delantero', 21, 2);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_user` int(11) NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `administrator` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`id_user`, `user`, `password`, `administrator`) VALUES
+(1, 'webadmin', '$2y$10$6zil872KW/HBsFJKH0D33OlEaGsshD36NDl455kfhz9Uhs.FxqLa2', 'S');
+
 --
 -- Indexes for dumped tables
 --
@@ -83,6 +103,12 @@ ALTER TABLE `jugador`
   ADD KEY `id_equipo` (`id_equipo`);
 
 --
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -97,6 +123,12 @@ ALTER TABLE `equipo`
 --
 ALTER TABLE `jugador`
   MODIFY `id_jugador` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

@@ -4,16 +4,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a class="nav-link "href="/TPE1-WEB2/home">Home</a>
+                <a class="nav-link "href="home">Home</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/TPE1-WEB2/equipos">Equipos</a>
+                <a class="nav-link" href="equipos">Equipos</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/TPE1-WEB2/jugadores">Jugadores</a>
+                <a class="nav-link" href="jugadores">Jugadores</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/TPE1-WEB2/login">Login</a>
+                <a class="nav-link" href="loginUser">Login</a>
                 </li>
             </ul>
             </div>

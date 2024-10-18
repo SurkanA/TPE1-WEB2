@@ -1,28 +1,42 @@
 <?php
 
 require_once 'app/controllers/jugador.controller.php';
+require_once 'app/controllers/usuario.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
-// leo el parametro accion
-$action = 'home'; // accion por defecto
+
+$action = 'loginUser';
 if (!empty($_GET['action'])) {
-    $action = $_GET['action'];  // action   => about/juan
+    $action = $_GET['action'];
 }
 
-// parsea la accion Ej: about/juan --> ['about', 'juan']
-$params = explode('/', $action); // genera un arreglo
-
+$params = explode('/', $action);
 
 switch ($params[0]) {
     case 'home':
+        $controller = new UsuarioController();
+        $controller->showHome();
         break;
     case 'equipos':
         break;
     case 'jugadores':
         $controller = new JugadorController();
-        $controller->showJugadores();
+        $controller->showPlayers();
         break;
-    case 'login':
+    case 'loginUser':
+        $controller = new UsuarioController();
+        $controller->loginUser();
+        break;
+    case 'registerUser':
+        $controller = new UsuarioController();
+        $controller->registerUser();
+        break;
+    case 'addUser':
+        $controller = new UsuarioController();
+        $controller->addUser();
+    case 'authUser':
+        $controller = new UsuarioController();
+        $controller->authUser();
         break;
     default:
         echo "404 not found";
