@@ -30,6 +30,12 @@ class UsuarioController
         $this->view->showLogin();
     }
 
+    public function logoutUser() {
+        $this->authHelper->logout();
+        header('Location: ' . 'loginUser');
+    }
+
+
     public function registerUser()
     {
         $this->view->showRegistrar();
@@ -44,7 +50,7 @@ class UsuarioController
             $hash = password_hash($userPassword, PASSWORD_DEFAULT);
 
             $user = $this->model->createUser($user, $hash, 'N');
-            header('Location: ' . 'login');
+            header('Location: ' . 'loginUser');
         }
     }
 

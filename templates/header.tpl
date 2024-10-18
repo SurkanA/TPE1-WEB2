@@ -34,7 +34,7 @@
         <li class="nav-item"><a href="home" class="nav-link" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="equipos" class="nav-link">Equipos</a></li>
         <li class="nav-item"><a href="jugadores" class="nav-link">Jugadores</a></li>
-        <li class="nav-item"><a href="loginUser" class="nav-link">Login</a></li>
+        <li class="nav-item"><a href="logoutUser" class="nav-link">Logout</a></li>
       </ul>
     </header>
 </div>
