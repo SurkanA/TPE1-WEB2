@@ -6,10 +6,8 @@
 {foreach from=$jugadores item=jugador}
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
-                    <div class="fw-bold">Jugador</div>
+                    <div class="fw-bold">{$jugador->nombre_jugador}</div>
                     Numero: {$jugador->id_jugador}
-                    <br>
-                    Nombre: {$jugador->nombre_jugador}
                     <br>
                     Posicion: {$jugador->posicion}
                     <br>
