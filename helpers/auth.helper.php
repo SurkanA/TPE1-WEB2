@@ -25,7 +25,7 @@ class AuthHelper
     {
         session_start();
         if (!isset($_SESSION['ID_USER'])) {
-            header('Location: ' . 'loginUser');
+            header('Location: ' . BASE_URL . 'loginUser');
             die();
         }
     }
