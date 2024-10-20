@@ -68,8 +68,8 @@ class JugadorModel extends Model
     public function updatePlayer($nombre_jugador, $edad, $posicion, $biografia, $imagen_url, $nombre_equipo, $id_jugador, $id_jugadorOld, $nombre_equipoCheck)
     {
         $sql = 'UPDATE jugador
-    SET nombre_jugador = ?, edad = ?, posicion = ?, biografia = ?, imagen_url = ?, nombre_equipo = ?, $id_jugador = ?
-    WHERE id_jugador = ? AND nombre_equipo = ?';
+                SET nombre_jugador = ?, edad = ?, posicion = ?, biografia = ?, imagen_url = ?, nombre_equipo = ?, id_jugador = ?
+                WHERE id_jugador = ? AND nombre_equipo = ?';
 
         $query = $this->createConnection()->prepare($sql);
         $query->execute([$nombre_jugador, $edad, $posicion, $biografia, $imagen_url, $nombre_equipo, $id_jugador, $id_jugadorOld, $nombre_equipoCheck]);
