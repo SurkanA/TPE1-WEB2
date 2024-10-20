@@ -13,6 +13,7 @@ class AuthHelper
         $_SESSION['ID_USER'] = $user->id_user;
         $_SESSION['USER'] = $user->user;
         $_SESSION['ADMINISTRATOR'] = $user->administrator;
+
     }
 
     public function logout()
@@ -30,19 +31,21 @@ class AuthHelper
         }
     }
 
-    public function checkAdmin()
+    public function isLogged()
     {
         session_start();
-        if ($_SESSION['ADMINISTRATOR'] != "S") {
-            header('Location: ' . 'home');
-            die();
+        if (isset($_SESSION['ADMINISTRATOR'])) {
+            return $_SESSION['ADMINISTRATOR'];
         }
     }
 
-    public function getLoggedUserName()
+    public function isAdmin()
     {
-        if (session_status() != PHP_SESSION_ACTIVE)
-            session_start();
-        return $_SESSION['USER'];
+        session_start();
+        if (isset($_SESSION['ADMINISTRATOR']) && $_SESSION['ADMINISTRATOR'] == "S") {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

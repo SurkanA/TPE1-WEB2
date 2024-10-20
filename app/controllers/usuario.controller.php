@@ -15,6 +15,7 @@ class UsuarioController
 
     public function __construct()
     {
+
         $this->model = new UsuarioModel();
         $this->view = new UsuarioView();
         $this->authHelper = new AuthHelper();
@@ -22,7 +23,6 @@ class UsuarioController
 
     public function showHome()
     {
-        $this->authHelper->checkLoggedIn();
         $this->view->showHome();
     }
     public function loginUser()
@@ -30,9 +30,10 @@ class UsuarioController
         $this->view->showLogin();
     }
 
-    public function logoutUser() {
+    public function logoutUser()
+    {
         $this->authHelper->logout();
-        header('Location: ' . 'loginUser');
+        header('Location: ' . BASE_URL . 'loginUser');
     }
 
 
@@ -50,7 +51,7 @@ class UsuarioController
             $hash = password_hash($userPassword, PASSWORD_DEFAULT);
 
             $user = $this->model->createUser($user, $hash, 'N');
-            header('Location: ' . 'loginUser');
+            header('Location: ' . BASE_URL . 'loginUser');
         }
     }
 
@@ -65,9 +66,9 @@ class UsuarioController
         if (!empty($user) && password_verify($password, ($user->password))) {
             $this->authHelper->login($user);
 
-            header('Location: ' . 'home');
+            header('Location: ' . BASE_URL . 'home');
         } else {
-            header('Location: ' . 'loginUser');
+            header('Location: ' . BASE_URL . 'loginUser');
         }
     }
 }

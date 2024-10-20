@@ -1,3 +1,10 @@
+/* Global */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Login y Register */
 
 .bd-placeholder-img {
@@ -60,11 +67,23 @@ html,
 
 /* Jugadores */
 
-.cont-main {
+.players {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
   flex-wrap: wrap;
-  height: 100vh;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.players .card {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.container-form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  max-width: 100%;
 }
