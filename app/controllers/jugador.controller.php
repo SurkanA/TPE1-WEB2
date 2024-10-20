@@ -66,7 +66,7 @@ class JugadorController
             $nombre_equipo = $_REQUEST['nombre_equipo'];
 
             $this->model->updatePlayer($nombre_jugador, $edad, $posicion, $biografia, $imagen_url, $nombre_equipo, $id_jugador, $id_jugadorOld, $nombre_equipoCheck);
-            //header('Location: ' . BASE_URL . 'showPlayers');
+            header('Location: ' . BASE_URL . 'showPlayers');
         }
     }
     public function insertPlayer()
