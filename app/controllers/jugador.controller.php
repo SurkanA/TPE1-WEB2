@@ -25,10 +25,10 @@ class JugadorController
         $this->view->showPlayers($jugadores);
     }
 
-    public function showPlayer($id_jugador)
+    public function showPlayer($nombre_equipo, $id_jugador)
     {
         //Pedir al modelo todas los players
-        $jugador = $this->model->getPlayer($id_jugador);
+        $jugador = $this->model->getPlayer($nombre_equipo, $id_jugador);
 
         //Pasarle a la vista los players
         $this->view->showPlayer($jugador);

@@ -42,8 +42,8 @@ switch ($params[0]) {
         break;
     case 'showPlayer':
         $controller = new JugadorController();
-        if (isset($params[1])) {
-            $controller->showPlayer($params[1]);
+        if (isset($params[1]) && isset($params[2])) {
+            $controller->showPlayer($params[1], $params[2]);
         } else {
             $controller->showPlayers();
         }
