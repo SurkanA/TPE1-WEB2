@@ -6,7 +6,7 @@
             <a href="showPlayer/{$jugador->nombre_equipo}/{$jugador->id_jugador}"><img src="{$jugador->imagen_url}"
                     class="card-img-top"></a>
             <div class="card-body">
-                <a href="showPlayer/{$jugador->id_jugador}">
+                <a href="showPlayer/{$jugador->nombre_equipo}/{$jugador->id_jugador}">
                     <h5 class="card-title">{$jugador->nombre_jugador}</h5>
                 </a>
             </div>

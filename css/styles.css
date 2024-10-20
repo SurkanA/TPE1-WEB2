@@ -1,10 +1,26 @@
 /* Global */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+
+#about li {
+  margin-bottom: 10px;
+}
 
 a {
   text-decoration: none;
   color: inherit;
 }
-
 /* Login y Register */
 
 .bd-placeholder-img {
@@ -86,4 +102,27 @@ html,
   padding-top: 40px;
   padding-bottom: 40px;
   max-width: 100%;
+}
+
+.card-img-top {
+  max-height: 300px; /* máximo de altura */
+  min-height: 300px; /* mínimo de altura */
+  object-fit: cover; /* ajusta la imagen para cubrir el área */
+  width: 100%; /* ancho completo */
+}
+
+.card-img-top {
+  transition: transform 0.3s; /* transición suave */
+}
+
+.card-img-top:hover {
+  transform: scale(1.07); /* escala la imagen al 110% */
+}
+
+/* Home */
+
+.homeCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
