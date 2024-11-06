@@ -78,7 +78,7 @@
                         <select class="form-select" id="posicion" name="posicion" required>
                             <option>{$jugador->posicion}</option>
                             {$posiciones = array("Delantero", "Centrocampista", "Defensa", "Portero")}
-                            {for $i=0 to 3}
+                            {for $i=0 to ($posiciones|@count - 1)}
                                 {if {$jugador->posicion} != {$posiciones[$i]}}
                                     <option>{$posiciones[$i]}</option>
                                 {/if}
