@@ -57,12 +57,12 @@
                         <select class="form-select" id="nombre_equipo" name="nombre_equipo" required>
                             {if $equipos != null}
                                 <option value="">Elige un equipo...</option>
+                                {foreach from=$equipos item=equipo}
+                                    <option value="{$equipo->nombre_equipo}">{$equipo->nombre_equipo}</option>
+                                {/foreach}
                             {else}
                                 <option value="">No existe ningun equipo en la base de datos</option>
                             {/if}
-                            {foreach from=$equipos item=equipo}
-                                <option value="{$equipo->nombre_equipo}">{$equipo->nombre_equipo}</option>
-                            {/foreach}
                         </select>
                         <div class="invalid-feedback">
                             Seleccione un equipo valido.
