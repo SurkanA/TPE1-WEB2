@@ -36,11 +36,11 @@ switch ($params[0]) {
         $controller = new UsuarioController();
         $controller->authUser();
         break;
-    case 'showPlayers':
+    case 'players':
         $controller = new JugadorController();
         $controller->showPlayers();
         break;
-    case 'showPlayer':
+    case 'player':
         $controller = new JugadorController();
         if (isset($params[1]) && isset($params[2])) {
             $controller->showPlayer($params[1], $params[2]);
@@ -48,7 +48,7 @@ switch ($params[0]) {
             $controller->showPlayers();
         }
         break;
-    case 'showModPlayer':
+    case 'modifyPlayer':
         $controller = new JugadorController();
         if (isset($params[1]) && isset($params[2])) {
             $controller->showModPlayer($params[1], $params[2]);

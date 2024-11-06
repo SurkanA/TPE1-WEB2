@@ -16,9 +16,10 @@ class JugadorView
         $this->smarty->assign('admin', $admin);
     }
 
-    public function showPlayers($jugadores)
+    public function showPlayers($jugadores, $equipos)
     {
         $this->smarty->assign('jugadores', $jugadores);
+        $this->smarty->assign('equipos', $equipos);
         $this->smarty->display('players.tpl');
     }
 
@@ -28,9 +29,10 @@ class JugadorView
         $this->smarty->display('player.tpl');
     }
 
-    public function showModPlayer($jugador)
+    public function showModPlayer($jugador, $equipos)
     {
         $this->smarty->assign('jugador', $jugador);
-        $this->smarty->display('modPlayer.tpl');
+        $this->smarty->assign('equipos', $equipos);
+        $this->smarty->display('modifyPlayer.tpl');
     }
 }

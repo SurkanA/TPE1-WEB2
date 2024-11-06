@@ -43,7 +43,7 @@
         <ul class="nav nav-pills">
           <li class="nav-item"><a href="home" class="nav-link" aria-current="page">Home</a></li>
           <li class="nav-item"><a href="equipos" class="nav-link">Equipos</a></li>
-          <li class="nav-item"><a href="showPlayers" class="nav-link">Jugadores</a></li>
+          <li class="nav-item"><a href="players" class="nav-link">Jugadores</a></li>
           {if isset($admin) && $admin}
             <li class="nav-item"><a href="logoutUser" class="nav-link">Logout</a></li>
           {else}

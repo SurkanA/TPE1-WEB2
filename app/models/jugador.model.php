@@ -3,12 +3,27 @@ require_once('model.php');
 
 class JugadorModel extends Model
 {
+
+    //Función que trae una player por id
+    public function getPlayer($nombre_equipo, $id_jugador)
+    {
+        $pdo = $this->createConnection();
+
+        $sql = 'SELECT * FROM jugador
+        WHERE REPLACE(nombre_equipo, " ", "") = REPLACE(?, " ", "") AND id_jugador = ?';
+        $query = $pdo->prepare($sql);
+        $query->execute([$nombre_equipo, $id_jugador]);
+
+        $player = $query->fetch(PDO::FETCH_OBJ);
+
+        return $player;
+    }
     //Función que pide a la DB todos los jugadores
     public function getPlayers()
     {
         $pdo = $this->createConnection();
 
-        $sql = "SELECT * FROM `jugador` ORDER BY `jugador`.`id_equipo` ASC";
+        $sql = "SELECT * FROM `jugador` ORDER BY `jugador`.`nombre_equipo` ASC";
         $query = $pdo->prepare($sql);
         $query->execute();
 
@@ -16,32 +31,20 @@ class JugadorModel extends Model
         return $jugadores;
     }
 
-    //Función que trae una player por id
-    public function getPlayer($nombre_equipo, $id_jugador)
-    {
-        $pdo = $this->createConnection();
 
-        $sql = "SELECT * FROM jugador
-        WHERE id_jugador = ? AND nombre_equipo = ?";
-        $query = $pdo->prepare($sql);
-        $query->execute([$id_jugador, $nombre_equipo]);
 
-        $player = $query->fetch(PDO::FETCH_OBJ);
 
-        return $player;
-    }
 
     //Función para crear un nuevo jugador en la DB
-    public function createPlayer($id_jugador, $nombre_jugador, $posicion, $edad, $biografia, $imagen_url, $id_equipo, $nombre_equipo)
+    public function createPlayer($nombre_jugador, $nombre_equipo, $id_jugador, $edad, $posicion, $biografia, $imagen_url)
     {
         $pDO = $this->createConnection();
 
-        $sql = 'INSERT INTO jugador (id_jugador, nombre_jugador, posicion, edad, biografia, imagen_url, id_equipo, nombre_equipo) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-
+        $sql = 'INSERT INTO jugador (nombre_jugador, nombre_equipo, id_jugador, edad, posicion, biografia, imagen_url) 
+        VALUES (?, ?, ?, ?, ?, ?, ?)';
         $query = $pDO->prepare($sql);
         try {
-            $query->execute([$id_jugador, $nombre_jugador, $posicion, $edad, $biografia, $imagen_url, $id_equipo, $nombre_equipo]);
+            $query->execute([$nombre_jugador, $nombre_equipo, $id_jugador, $edad, $posicion, $biografia, $imagen_url]);
         } catch (\Throwable $th) {
             echo $th;
             die(__FILE__);
@@ -49,30 +52,47 @@ class JugadorModel extends Model
     }
 
     //Función para borrar un jugador de la DB
-    public function deletePlayer($id_equipo, $id_jugador)
+    public function deletePlayer($nombre_equipo, $id_jugador)
     {
         $pDO = $this->createConnection();
-
         $sql = 'DELETE FROM jugador
-                WHERE nombre_equipo = ? AND id_jugador = ?';
+         WHERE REPLACE(nombre_equipo, " ", "") = REPLACE(?, " ", "") AND id_jugador = ?';
 
         $query = $pDO->prepare($sql);
         try {
-            $query->execute([$id_equipo, $id_jugador]);
+            $query->execute([$nombre_equipo, $id_jugador]);
         } catch (\Throwable $th) {
-            return null;
+            print $th;
+            die(__FILE__);
         }
     }
 
     //Función para modificar un jugador de la DB
-    public function updatePlayer($nombre_jugador, $edad, $posicion, $biografia, $imagen_url, $nombre_equipo, $id_jugador, $id_jugadorOld, $nombre_equipoCheck)
+    public function updatePlayer($nombre_jugador, $nombre_equipo, $id_jugador, $edad, $posicion, $biografia, $imagen_url, $teamWhere, $idWhere)
     {
+        $pDO = $this->createConnection();
         $sql = 'UPDATE jugador
-                SET nombre_jugador = ?, edad = ?, posicion = ?, biografia = ?, imagen_url = ?, nombre_equipo = ?, id_jugador = ?
-                WHERE id_jugador = ? AND nombre_equipo = ?';
+            SET nombre_jugador = ?, nombre_equipo = ?, id_jugador = ?, edad = ?, posicion = ?, biografia = ?, imagen_url = ?
+            WHERE REPLACE(nombre_equipo, " ", "") = REPLACE(?, " ", "") AND id_jugador = ?';
 
-        $query = $this->createConnection()->prepare($sql);
-        $query->execute([$nombre_jugador, $edad, $posicion, $biografia, $imagen_url, $nombre_equipo, $id_jugador, $id_jugadorOld, $nombre_equipoCheck]);
+        $query = $pDO->prepare($sql);
+        try {
+            $query->execute([$nombre_jugador, $nombre_equipo, $id_jugador, $edad, $posicion, $biografia, $imagen_url, $teamWhere, $idWhere]);
+        } catch (\Throwable $th) {
+            print $th;
+            die(__FILE__);
+        }
+    }
+    public function getEquipos()
+    {
+        $pdo = $this->createConnection();
 
+        $sql = "SELECT * FROM `equipo` ORDER BY `equipo`.`nombre_equipo` ASC ";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+
+        $equipos = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $equipos;
     }
 }
