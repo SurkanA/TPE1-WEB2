@@ -80,7 +80,13 @@ switch ($params[0]) {
         $controller = new EquiposController();
         $controller->showEquipos();
         break;
-    case 'eliminar':
+    case 'equipo':
+        $controller = new EquiposController();
+        if (isset($params[1])) {
+            $controller->showEquipo($params[1]);
+        }
+        break;
+    case 'deleteEquipo':
         $controller = new EquiposController();
         if (isset($params[1])) {
             $controller->deleteEquipo($params[1]);
@@ -92,9 +98,13 @@ switch ($params[0]) {
         $controller = new EquiposController();
         $controller->updateEquipo();
         break;
-    case 'addEquipo':
+    case 'modifyEquipo':
         $controller = new EquiposController();
-        $controller->showForm();
+        if (isset($params[1])) {
+            $controller->editarEquipo($params[1]);
+        } else {
+            $controller->showEquipos();
+        }
         break;
     case 'createEquipo':
         $controller = new EquiposController();

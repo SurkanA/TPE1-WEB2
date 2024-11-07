@@ -22,10 +22,17 @@ class EquiposView
         $this->smarty->assign('equipos', $equipos);
         $this->smarty->display('equipos.tpl');
     }
+
+    public function mostrarEquipo($equipo)
+    {
+        $this->smarty->assign('equipo', $equipo);
+        $this->smarty->display('equipos.tpl');
+    }
+
     public function showEquipo($equipos)
     {
         $this->smarty->assign('equipos', $equipos);
-        $this->smarty->display('player.tpl');
+        $this->smarty->display('equipo.tpl');
     }
 
     public function showModEquipo($equipos)
@@ -39,14 +46,15 @@ class EquiposView
         $this->smarty->display('modPlayer.tpl');
     }
 
-    public function mostrarFormEditarEquipo($equipo, $admin){
+    public function mostrarFormEditarEquipo($equipo)
+    {
         $this->smarty->assign('equipo', $equipo);
-        $this->smarty->assign('isLogged', $admin);
         $this->smarty->display('forEditEquipo.tpl');
     }
 
 
-    public function mostrarForm($admin){
+    public function mostrarForm($admin)
+    {
         $this->smarty->assign('isLogged', $admin);
         $this->smarty->display('insertEquipo.tpl');
     }

@@ -36,51 +36,48 @@ class EquiposModel extends Model
     {
         $pDO = $this->createConnection();
 
-        $sql = 'DELETE FROM equipo
+        $sql = 'DELETE FROM jugador
+                WHERE nombre_equipo = (SELECT nombre_equipo FROM equipo WHERE id_equipo = ?)';
+
+        $sql2 = 'DELETE FROM equipo
                 WHERE id_equipo = ?';
 
         $query = $pDO->prepare($sql);
+        $query2 = $pDO->prepare($sql2);
         try {
             $query->execute([$id_equipo]);
+            $query2->execute([$id_equipo]);
         } catch (\Throwable $th) {
             return null;
         }
+
     }
-        //Función para modificar un jugador de la DB
-        public function updateEquipo($nombre_equipo, $ciudad, $year_fundado, $biografia, $imagen_url, $id)
-        {
-            $sql = 'UPDATE equipo
+    //Función para modificar un jugador de la DB
+    public function updateEquipo($nombre_equipo, $ciudad, $year_fundado, $biografia, $imagen_url, $id)
+    {
+        $sql = 'UPDATE equipo
                     SET nombre_equipo = ?, ciudad = ?, year_fundado = ?, biografia = ?, imagen_url = ?
                     WHERE id_equipo = ?';
-    
-            $query = $this->createConnection()->prepare($sql);
-            $query->execute([$nombre_equipo, $ciudad, $year_fundado, $biografia, $imagen_url, $id]);
-    
-        }
-/*************  ✨ Codeium Command ⭐  *************/
-    /**
-     * Inserts a new team into the database.
-     *
-     * @param string $nombre_equipo The name of the team.
-     * @param string $ciudad The city where the team is based.
-     * @param int $year_fundado The year the team was founded.
-     * @param string $imagen_url The URL of the team's image.
-     */
-/******  0cb85519-b986-49a5-8d5d-0a29ac03f1c6  *******/
-    public function createEquipo( $nombre_equipo, $ciudad, $year_fundado, $biografia, $imagen_url)
+
+        $query = $this->createConnection()->prepare($sql);
+        $query->execute([$nombre_equipo, $ciudad, $year_fundado, $biografia, $imagen_url, $id]);
+
+    }
+
+    public function createEquipo($nombre_equipo, $ciudad, $year_fundado, $biografia, $imagen_url)
     {
         $pDO = $this->createConnection();
 
         $sql = 'INSERT INTO equipo ( nombre_equipo, ciudad,year_fundado, biografia, imagen_url ) 
-                VALUES (?, ?, ?, ?, ?)'; 
+                VALUES (?, ?, ?, ?, ?)';
 
         $query = $pDO->prepare($sql);
         try {
-            $query->execute([ $nombre_equipo, $ciudad, $year_fundado, $biografia, $imagen_url]);
+            $query->execute([$nombre_equipo, $ciudad, $year_fundado, $biografia, $imagen_url]);
         } catch (\Throwable $th) {
             echo $th;
             die(__FILE__);
         }
     }
-    
+
 }
