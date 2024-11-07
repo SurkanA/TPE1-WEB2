@@ -80,15 +80,26 @@ switch ($params[0]) {
         $controller = new EquiposController();
         $controller->showEquipos();
         break;
-    case 'editar':
+    case 'eliminar':
         $controller = new EquiposController();
         if (isset($params[1])) {
-            $controller->editarEquipo($params[1]);
+            $controller->deleteEquipo($params[1]);
         } else {
             $controller->showEquipos();
         }
         break;
-      
+    case 'updateEquipo':
+        $controller = new EquiposController();
+        $controller->updateEquipo();
+        break;
+    case 'addEquipo':
+        $controller = new EquiposController();
+        $controller->showForm();
+        break;
+    case 'createEquipo':
+        $controller = new EquiposController();
+        $controller->createEquipo();
+        break;
     default:
         echo "404 not found";
         break;
