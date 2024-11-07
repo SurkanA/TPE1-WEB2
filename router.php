@@ -88,6 +88,7 @@ switch ($params[0]) {
             $controller->showEquipos();
         }
         break;
+      
     default:
         echo "404 not found";
         break;
