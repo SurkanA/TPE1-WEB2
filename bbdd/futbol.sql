@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2024 at 06:42 AM
+-- Generation Time: Nov 07, 2024 at 06:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,7 +32,7 @@ CREATE TABLE `equipo` (
   `nombre_equipo` varchar(100) NOT NULL,
   `ciudad` varchar(100) NOT NULL,
   `year_fundado` year(4) NOT NULL,
-  `biografia` varchar(300) NOT NULL,
+  `biografia` varchar(300) DEFAULT NULL,
   `imagen_url` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -103,7 +103,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `usuario`
