@@ -1,4 +1,4 @@
-# TPE1-WEB2
+# TPE2-WEB2
 
 ## Tematica: Futbol
 - Base de datos diseñada para la visualización y organización de equipos de fútbol. Conlleva una relación de 1-N donde cada jugador está asociado a un único equipo.
@@ -25,7 +25,7 @@
 
 ### Acceso al Sitio
 1. Abrir el navegador.
-2. Dirigirse a http://localhost/TPE1-WEB2 o reemplazer despues del localhost/ la ubicacion exacta donde fue extraida/clonada la carpeta.
+2. Dirigirse a http://localhost/TPE2-WEB2 o reemplazer despues del localhost/ la ubicacion exacta donde fue extraida/clonada la carpeta.
 3. Para poder hacer uso del admin se debera ingresar en el login la siguiente informacion:
     -   Usuario: webadmin
     -   Contraseña: admin
