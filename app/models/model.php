@@ -10,12 +10,12 @@ class Model
     $tables = $query->fetchAll();
     if (count($tables) == 0) {
       $sql = <<<END
-            -- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2024 at 06:02 PM
+-- Generation Time: Nov 07, 2024 at 06:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -60,8 +60,8 @@ CREATE TABLE `jugador` (
   `id_jugador` int(11) NOT NULL,
   `edad` int(11) NOT NULL,
   `posicion` varchar(50) NOT NULL,
-  `biografia` varchar(300) NOT NULL,
-  `imagen_url` varchar(300) NOT NULL
+  `biografia` varchar(300) DEFAULT NULL,
+  `imagen_url` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -127,7 +127,6 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
 END;
       $this->db->query($sql);
     }
